@@ -1,0 +1,35 @@
+.navbar{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    height: 70px;
+    width: auto;
+    left: 100px;
+    right: 100px;
+    top: 50px;
+    background-color: white;
+    opacity: 50%;
+    justify-content: space-between;
+}
+.logoSection{
+    display: flex;
+}
+.itemsSection {
+    display: flex;
+}
+.itemsSection div {
+    padding-right: 70px;
+}
+.logoTitle {
+    display: flex;
+    height: 70px;
+}
+.logoitle img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.githubLogo{
+    height: 70px;
+    cursor: pointer;
+}

@@ -1,0 +1,26 @@
+.mainContainer{
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    width: 100%;
+    height: 900px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Images/victoria-shes-UC0HZdUitWY-unsplash.jpg');
+    background-size: cover;
+}
+
+.button {
+    height: 70px;
+    width: 200px;
+    text-decoration: none;
+    border: solid 2px;
+    border-radius: 25px;
+    opacity: 70%;
+}
+.button a {
+    cursor: pointer;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+}
