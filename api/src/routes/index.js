@@ -12,6 +12,9 @@ const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
+
+
+
 const getApiInfo = async () => {
   try {
     const apiUrl = await axios.get(
@@ -62,19 +65,20 @@ const getAllRecipes = async () => {
 };
 
 router.get("/recipes", async (req, res) => {
-  const { name } = req.query;
+  const name = req.query.name;
   let recipesTotal = await getAllRecipes();
   if (name) {
-    let recipeName = await recipesTotal.filter((recipe) =>
-      recipe.name.toLowerCase().includes(name.toLocaleLowerCase())
+    let recipeName = recipesTotal.filter((el) =>
+      el.name.toLowerCase().includes(name.toLowerCase())
     );
-    recipeName.lenght
-      ? res.status(200).send(recipeName)
-      : res.status(404).send("Recipe not found");
+    if (recipeName.length){
+      return res.status(200).send(recipeName)
   } else {
-    res.status(200).json(recipesTotal);
-  }
-});
+      return res.status(404).send({error: 'The dog is at the park'})
+  }} 
+   else {
+    return res.status(200).json(recipesTotal);
+   }});
 
 router.get("/recipes/:id", async (req, res) => {
   const { id } = req.params;
@@ -111,6 +115,7 @@ router.get("/recipes/:id", async (req, res) => {
 
 router.post("/recipes", async (req, res) => {
   let {
+    id,
     name,
     summary,
     healthScore,
@@ -120,6 +125,7 @@ router.post("/recipes", async (req, res) => {
     createdInDb,  
   } = req.body;
   let recipeCreated = await Recipe.create({
+    id,
     name,
     summary,
     healthScore,

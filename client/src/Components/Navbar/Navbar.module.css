@@ -1,24 +1,28 @@
 .navbar{
-    display: flex;
     position: absolute;
     z-index: 1;
     height: 70px;
     width: auto;
-    left: 100px;
-    right: 100px;
+    left: 10%;
+    right: 10%;
     top: 50px;
     background-color: white;
     opacity: 50%;
     justify-content: space-between;
+    padding: 10px;
+}
+.logos {
+    display: flex;
 }
 .logoSection{
     display: flex;
+    justify-content: space-between;
 }
 .itemsSection {
     display: flex;
 }
-.itemsSection div {
-    padding-right: 70px;
+.pageLogo {
+    padding-left: 50px;
 }
 .logoTitle {
     display: flex;
@@ -29,7 +33,13 @@
     max-height: 100%;
     object-fit: cover;
 }
+
 .githubLogo{
     height: 70px;
+    
+    transition: ease-in-out;
+}
+.githubLogo:hover {
+    transform: scale(1.4);
     cursor: pointer;
 }

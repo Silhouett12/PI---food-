@@ -5,13 +5,17 @@ import styles from "./FirstPage.module.css";
 const FirstPage = () => {
   return (
     <>
+    
       <div className={styles.mainContainer}>
+      <Link to="/home" className={styles.link}>
         <button className={styles.button}>
-          <Link to="/Home">Let's find out!</Link>
+          YUMMY! 
         </button>
+        </Link>
       </div>
     </>
   );
 };
 
 export default FirstPage;
+
