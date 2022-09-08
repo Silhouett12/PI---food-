@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css";
 import logo from "../Images/food.png";
 import logoTitle from "../Images/great food.png";
 import githubLogo from "../Images/github.png";
+
 const Navbar = () => {
   return (
     <>
@@ -21,7 +22,14 @@ const Navbar = () => {
                 <img alt="githubLogo" src={githubLogo} />
               </a>
             </div>
-            <div className={styles.pageLogo}>HOLAAAAAAAA</div>
+            <button className={styles.button}>
+              <a
+                className={styles.link}
+                href="https://pablolamadrid.netlify.app/"
+              >
+                MY PAGE{" "}
+              </a>
+            </button>
           </div>
         </div>
       </div>

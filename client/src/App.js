@@ -10,6 +10,7 @@ import RecipeCreator from "./Components/RecipeCreator";
 function App() {
   return (
     <>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<FirstPage/>} />
         <Route path="/home" element={<Home/>} />

@@ -1,0 +1,7 @@
+.pagesList {
+    display: flex;
+   list-style: none;
+}
+.pages {
+    text-decoration: none;
+}

@@ -64,9 +64,6 @@ const getAllRecipes = async () => {
   return totalInfo;
 };
 
-const getRecipesId = async () => {
-  
-}
 
 router.get("/recipes", async (req, res) => {
   const name = req.query.name;
