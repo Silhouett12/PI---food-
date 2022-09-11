@@ -1,6 +1,7 @@
 require("dotenv").config();
 const KEY = process.env.API_KEY;
 const KEY2 = process.env.API_DIET_KEY;
+const KEY3 = process.env.API_GG_KEY;
 const { Diet, Recipe } = require("../db");
 const { Router } = require("express");
 const axios = require("axios");
@@ -18,7 +19,7 @@ const router = Router();
 const getApiInfo = async () => {
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY2}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=100`
     );
     const apiInfo = apiUrl.data.results.map((e) => {
       return {
@@ -30,7 +31,7 @@ const getApiInfo = async () => {
         image: e.image,
         apiId: e.id,
         healthScore: e.healthScore,
-        diets: e.diets.map((element) => element),
+        diets: e.diets.map((element) => {return {name: element}}),
         summary: e.summary,
         steps: e.analyzedInstructions
           .map((instruction) => {
@@ -75,7 +76,7 @@ router.get("/recipes", async (req, res) => {
     if (recipeName.length){
       return res.status(200).send(recipeName)
   } else {
-      return res.status(404).send({error: 'The dog is at the park'})
+      return res.status(404).send({error: 'Not recipes found'});
   }} 
    else {
     return res.status(200).json(recipesTotal);
@@ -144,7 +145,7 @@ router.post("/recipes", async (req, res) => {
 router.get("/diets", async (req, res) => {
 
 const dietApi = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY2}&addRecipeInformation=true&number=100`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=100`
   );
 const dietInfo = dietApi.data.results.map(e => e.diets)
 const diets = [];

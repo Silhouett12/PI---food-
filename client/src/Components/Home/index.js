@@ -59,43 +59,61 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <SearchBar />
-      <Link to="/create">Create Recipe</Link>
-      <h1 className={styles.title}>TITULO</h1>
-      <button onClick={refreshPage}>CARGAR TODO</button>
-      <div>
-        <select onChange={handleFilterByDiet}>
-          <option value="diets">Type of diet</option>
-          <option value="vegan">Vegan</option>
-          <option value="lacto ovo vegetarian">Vegetarian</option>
-          <option value="dairy free">Dairy free</option>
-          <option value="gluten free">Gluten free</option>
-        </select>
-        <select onChange={handleOrderByName}>
-          <option value="asc">A-Z</option>
-          <option value="desc">Z-A</option>
-        </select>
-        <select onChange={handleOrderByScore}>
-          <option value="healthy">healthy</option>
-          <option value="unhealthy">unhealthy</option>
-        </select>
-        <Pages
-          recipesPerPage={recipesPerPage}
-          allRecipes={allRecipes.length}
-          pages={pages}
-        />
-        <div className={styles.cards}>
-          {currentRecipes?.map((el) => {
-            return (
-              <RecipeCard
-                image={el.image}
-                name={el.name}
-                diets={el.diets + ' ,'}
-                healthScore={el.healthScore}
-              />
-            );
-          })}
+      <div className={styles.mainDiv}>
+        <div className={styles.firstContainer}>
+          <h1 className={styles.title}>Welcome to my food API! :D</h1>
+          
         </div>
+        <div className={styles.secondContainer}>
+          <div className={styles.filterContainer}>
+            <div className={styles.filterTitle}>Order by:</div>
+          <select onChange={handleFilterByDiet}>
+            <option value="diets">Diet</option>
+            <option value="vegan">Vegan</option>
+            <option value="lacto ovo vegetarian">Vegetarian</option>
+            <option value="dairy free">Dairy free</option>
+            <option value="gluten free">Gluten free</option>
+          </select>
+          <select onChange={handleOrderByName}>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+          <select onChange={handleOrderByScore}>
+            <option value="healthy">healthy</option>
+            <option value="unhealthy">unhealthy</option>
+          </select>
+          </div>
+          <div className={styles.searchBarContainer}>
+          <SearchBar />
+          </div>
+          <button className={styles.button}>
+            <Link to="/create" className={styles.linkCreate}>
+              Create Recipe
+            </Link>
+          </button>
+          </div>
+          <div className={styles.thirdContainer}>
+          <Pages
+            recipesPerPage={recipesPerPage}
+            allRecipes={allRecipes.length}
+            pages={pages}
+          />
+          </div>
+          <div className={styles.cards}>
+            {currentRecipes?.map((el) => {
+              return (
+                <>
+                  <RecipeCard
+                    image={el.image}
+                    name={el.name}
+                    diets={el.diets.map((el) => el.name?.concat(" | "))}
+                    healthScore={el.healthScore}
+                  />
+                  <Link to={`/recipes/${el.id}`}>Check {el.name}</Link>
+                </>
+              );
+            })}
+          </div>
       </div>
     </>
   );

@@ -14,6 +14,19 @@ export function getRecipes() {
     }
 }
 
+
+
+export function getDetails(id) {
+    return async function(dispatch) {
+        const json = await axios.get('http://localhost:3001/recipes/' + id);
+        return dispatch({
+            type: 'GET_DETAILS',
+            payload: json.data,
+        });
+    }
+}
+
+
 export function getRecipesName(name) {
     return async function(dispatch) {
         try {

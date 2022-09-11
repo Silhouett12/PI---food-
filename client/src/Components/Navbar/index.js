@@ -27,7 +27,7 @@ const Navbar = () => {
                 className={styles.link}
                 href="https://pablolamadrid.netlify.app/"
               >
-                MY PAGE{" "}
+                My Page
               </a>
             </button>
           </div>
