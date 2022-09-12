@@ -9,8 +9,8 @@ const Pages = ({ recipesPerPage, allRecipes, pages }) => {
   }
 
   return (
-    <nav>
-      <ul className={styles.pagesList}>
+    <>
+      <div className={styles.pagesList}>
         {pageNumber?.map((number) => {
           return (
             <li className={styles.pages} >
@@ -18,8 +18,8 @@ const Pages = ({ recipesPerPage, allRecipes, pages }) => {
             </li>
           );
         })}
-      </ul>
-    </nav>
+      </div>
+    </>
   );
 };
 

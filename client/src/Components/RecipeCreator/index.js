@@ -56,7 +56,7 @@ const RecipeCreator = () => {
  }
 
   useEffect(() => {
-    dispatch(getDiets())}, [])
+    dispatch(getDiets())}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

@@ -40,6 +40,9 @@
       "last 1 safari version"
     ]
   },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
   "devDependencies": {
     "redux-devtools-extension": "^2.13.9"
   }

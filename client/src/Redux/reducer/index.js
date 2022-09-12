@@ -39,8 +39,9 @@ function rootReducer(state = initialState, action) {
         action.payload === "diets"
           ? allRecipes
           : allRecipes.filter((el) => {
-              return el.diets.includes(action.payload);
+              return el.diets.find(e => e.name === action.payload);
             });
+            console.log(allRecipes);
       console.log(filterDiet);
       return {
         ...state,

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { getRecipesName } from '../../Redux/actions'
+import styles from './SearchBar.module.css'
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -12,12 +13,13 @@ const SearchBar = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(getRecipesName(searchValue))
+        console.log(searchValue)
     }
   return (
-    <>
-    <input type="text" placeholder='Search...' onChange={onSearchValueChange} />
-    <button type='submit' onClick={handleSubmit}>Search</button>
-    </>
+    <div className={styles.searchBar}>
+    <input type="text" placeholder='Search by name...' onChange={onSearchValueChange} className={styles.inputSearch}/>
+    <button type='submit' onClick={handleSubmit} className={styles.button} >Search</button>
+    </div>
   )
 }
 

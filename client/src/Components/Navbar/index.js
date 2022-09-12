@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css";
 import logo from "../Images/food.png";
 import logoTitle from "../Images/great food.png";
 import githubLogo from "../Images/github.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -15,7 +16,7 @@ const Navbar = () => {
             </div>
             <img alt="logo" src={logo} className={styles.logoImg} />
           </div>
-
+          <button className={styles.button}><Link to="/home" className={styles.link}>HOME</Link></button>
           <div className={styles.itemsSection}>
             <div className={styles.githubLogo}>
               <a href="https://github.com/Silhouett12/PI---food-">
@@ -23,8 +24,7 @@ const Navbar = () => {
               </a>
             </div>
             <button className={styles.button}>
-              <a
-                className={styles.link}
+              <a className={styles.link}
                 href="https://pablolamadrid.netlify.app/"
               >
                 My Page

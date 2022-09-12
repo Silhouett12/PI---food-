@@ -19,7 +19,7 @@ const router = Router();
 const getApiInfo = async () => {
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY2}&addRecipeInformation=true&number=100`
     );
     const apiInfo = apiUrl.data.results.map((e) => {
       return {
@@ -29,7 +29,7 @@ const getApiInfo = async () => {
         glutenFree: e.glutenFree,
         dairyFree: e.dairyFree,
         image: e.image,
-        apiId: e.id,
+        id: e.id,
         healthScore: e.healthScore,
         diets: e.diets.map((element) => {return {name: element}}),
         summary: e.summary,
@@ -85,13 +85,24 @@ router.get("/recipes", async (req, res) => {
 router.get("/recipes/:id", async (req, res) => {
   const { id } = req.params;
   const dbInfo = await getDBinfo();
+ 
   try {
     if (id < 100) {
-      const result = dbInfo.filter((recipe) => (recipe.id = id));
-      res.status(200).json(result);
+      const result = dbInfo.filter(el => el.id.toString() === id)
+      const result2 = {
+        id: result[0].id,
+        name: result[0].name,
+        image: result[0].image,
+        healthScore: result[0].healthScore,
+        summary: result[0].summary,
+        diets: result[0].diets.map((diet) => diet),
+        steps: result[0].steps
+      }
+      console.log(result2);
+      res.status(200).json(result2);
     } else {
       const apiUrl = await axios.get(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY}&includeNutrition=false`
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY2}&includeNutrition=false`
       );
       const apiRecipes = apiUrl.data;
       const apiRecipeId = {
@@ -145,7 +156,7 @@ router.post("/recipes", async (req, res) => {
 router.get("/diets", async (req, res) => {
 
 const dietApi = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=100`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY2}&addRecipeInformation=true&number=100`
   );
 const dietInfo = dietApi.data.results.map(e => e.diets)
 const diets = [];

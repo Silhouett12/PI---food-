@@ -1,0 +1,62 @@
+.mainDiv {
+    display: block;
+    height: auto;
+    background-color: beige;
+    background-image: url('../Images/peter-gargiulo-cGNCepznaV8-unsplash\ \(1\).jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    height: 70px;
+    font-size: 40px;
+    padding-top: 200px;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+    padding: 30px 150px;
+    height: 350px;
+}
+
+.score {
+    height: 100%;
+    width: 380px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 35px;
+    border: 1px solid white;
+    margin: 0 100px;
+    align-items: center;
+}
+
+.summary {
+    font-size: 28px;
+    padding: 40px 150px;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+
+.summary p a {
+    text-decoration: none;
+    color: aqua;
+} 
+
+.steps {
+    display: block;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    padding: 40px 150px;
+}
+.title {
+    font-size: 70px;
+}

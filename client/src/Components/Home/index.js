@@ -19,7 +19,7 @@ const Home = () => {
   const allRecipes = useSelector((state) => state.recipes);
 
   const [currentPage, setCurrentPage] = React.useState(1);
-  const [recipesPerPage, setrecipesPerPage] = React.useState(9);
+  const [recipesPerPage,setRecipesPerPage] = React.useState(9);
   const [render, setRender] = React.useState("");
   const indexOfLastRecipe = currentPage * recipesPerPage;
   const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
@@ -27,10 +27,7 @@ const Home = () => {
     indexOfFirstRecipe,
     indexOfLastRecipe
   );
-
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
+  
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -38,8 +35,8 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getRecipes());
-  }, []);
-
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+ 
   const handleOrderByName = (e) => {
     e.preventDefault();
     dispatch(orderByName(e.target.value));
@@ -59,10 +56,10 @@ const Home = () => {
   return (
     <>
       <Navbar />
+      
       <div className={styles.mainDiv}>
         <div className={styles.firstContainer}>
           <h1 className={styles.title}>Welcome to my food API! :D</h1>
-          
         </div>
         <div className={styles.secondContainer}>
           <div className={styles.filterContainer}>
@@ -108,8 +105,8 @@ const Home = () => {
                     name={el.name}
                     diets={el.diets.map((el) => el.name?.concat(" | "))}
                     healthScore={el.healthScore}
-                  />
-                  <Link to={`/recipes/${el.id}`}>Check {el.name}</Link>
+                    id={el.id}
+                  />                  
                 </>
               );
             })}

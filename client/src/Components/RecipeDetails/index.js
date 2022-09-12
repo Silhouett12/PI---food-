@@ -1,33 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import { getDetails } from "../../Redux/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styles from './RecipeDetails.module.css'
+import Navbar from "../Navbar";
 
 const RecipeDetails = (props) => {
   const dispatch = useDispatch();
+  const {id} = useParams();
+
 
   useEffect(() => {
-    dispatch(getDetails(props.match.params.id));
-  }, [dispatch]);
-
+    dispatch(getDetails(id));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  console.log(getDetails(id))
   const recipes = useSelector((state) => state.details);
-
+  console.log(recipes)
   return (
     <div>
-      {recipes.lenght > 0 ? <div> 
-        <h1>{recipes[0].name}</h1> 
-        <img src={recipes[0].image} alt="Image not found"/>
-        <p> {recipes[0].healthScore}</p>
-        <p> {recipes[0].summary}</p>
-        <p> {recipes[0].dishTypes}</p>
-        <p> {recipes[0].steps}</p>
+      <Navbar/>
+      {recipes? <div className={styles.mainDiv}> 
+        <div className={styles.name}>"<b>{recipes.name}</b>"</div> 
+        <div className={styles.image}> <img src={recipes.image} alt="Not found" /> 
+        <div className={styles.score}> |Health Score| <br/> '{recipes.healthScore}'<br/> |Dish type| <br/>'{recipes.dishTypes}'</div></div>
+        
+        <div className={styles.summary}><p dangerouslySetInnerHTML={{ __html: recipes.summary }}></p></div>
+      
+        <div className={styles.steps}> <div className={styles.title}> <b>Steps:</b></div> <br/>{recipes.steps}</div>
         </div> : <div>"Recipe not found"</div>}
-        <Link to='/home'>
-          <button>
-            Home
-          </button>
-        </Link>
+        
     </div>
   );
 };
