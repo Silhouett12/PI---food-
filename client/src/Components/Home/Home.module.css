@@ -153,3 +153,39 @@
     align-items: center;
     padding-top: 30px;
   }
+
+
+  @media (max-width: 1024px) {
+    .mainDiv {
+      padding-top: 80px;
+    }
+
+    .firstContainer {
+      width: 100%;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+    }
+    .title {
+      font-size: 25px;
+      padding: 0;
+    }
+
+    .filterContainer {
+      padding: 10px;
+    }
+    .filterContainer select {
+      height: 30px;
+      padding: 0px 15px;
+    }
+    .searchBarContainer {
+      padding: 10px;
+    }
+    .button {
+      height: 50px;
+      margin-top: 10px;
+    }
+    .thirdContainer {
+      padding-top: 15px;
+    }
+  }

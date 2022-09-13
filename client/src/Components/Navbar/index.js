@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../Images/food.png";
 import logoTitle from "../Images/great food.png";
@@ -6,10 +6,18 @@ import githubLogo from "../Images/github.png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  const [open, setOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setOpen(!open)
+  }
+
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.logoSection}>
+        <button className={styles.toggleMenu} onClick={toggleMenu}> ||| </button>
+        <div className={open ? styles.logoSection : styles.logoSectionHidden}>
           <div className={styles.logos}>
             <div className={styles.logoTitle}>
               <img alt="logoTitle" src={logoTitle} />

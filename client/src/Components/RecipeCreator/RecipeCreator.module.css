@@ -86,7 +86,8 @@ ul {
     display: flex;
     flex-wrap: wrap;
     margin: 0;
-    padding: 0;
+    padding-top: 20px;
+    padding-left: 0;
     justify-content: space-between;
 }
 li {
@@ -98,4 +99,17 @@ li {
 .errorMessage {
     color: red;
     font-weight: bold;
+}
+
+@media (max-width: 560px) {
+    .mainDiv {
+        width: 330px;
+        height: 700px;
+    }
+    ul {
+        padding-top: 20px;
+    }
+    textarea {
+        height: 100px;
+    }
 }

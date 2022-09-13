@@ -36,3 +36,17 @@
     font-weight: bolder;
     
 }
+
+@media (max-width: 1024px) {
+    .cardContainer {
+        width: 250px;
+        height: 300px;
+    }
+    .cardContainer a {
+        width: 200px;
+        height: 180px;
+    }
+    .name {
+        font-size: 14px;
+    }
+}

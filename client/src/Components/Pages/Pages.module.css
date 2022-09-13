@@ -33,3 +33,29 @@
   color: white;
   border: 1px solid white
 }
+
+@media (max-width: 1024px) {
+  .nav {
+    display: flex;
+    width: 100%;
+    height: 30px;
+  }
+  
+  .pagesList {
+    display: flex;
+    flex-wrap: wrap;
+     list-style: none;
+     width: 100%;
+     height: 100%;
+     justify-content: center;
+  }
+  .pages {
+      text-decoration: none;
+      width: 30px;
+      height: 30px;
+      padding: 0;
+  }
+  .button {
+    border-radius: 0;
+  }
+}

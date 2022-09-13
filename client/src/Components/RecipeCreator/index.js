@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { createRecipe, getDiets } from "../../Redux/actions";
 import styles from "./RecipeCreator.module.css";
 import Navbar from "../Navbar";
@@ -77,6 +76,7 @@ const RecipeCreator = () => {
   useEffect(() => {
     dispatch(getDiets());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
 
   return (
     <div className={styles.mainContainer}>

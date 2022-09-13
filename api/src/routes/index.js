@@ -35,20 +35,25 @@ const getApiInfo = async () => {
     });
     return apiInfo;
   } catch (error) {
-    return error;
+    res.status(404).send(error.message);
   }
 };
 
 const getDBinfo = async () => {
-  return await Recipe.findAll({
-    include: {
-      model: Diet,
-      attributes: ["name"],
-      through: {
-        attributes: [],
+  try {
+    return await Recipe.findAll({
+      include: {
+        model: Diet,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
       },
-    },
-  });
+    });
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+ 
 };
 
 const getAllRecipes = async () => {
@@ -114,41 +119,46 @@ router.get("/recipes/:id", async (req, res) => {
       };
       res.status(200).json(apiRecipeId);
     }
-  } catch (err) {
-    res.status(404).send(err.message);
+  } catch (error) {
+    res.status(404).send(error.message);
   }
 });
 
 router.post("/recipes", async (req, res) => {
-  let {
-    id,
-    name,
-    summary,
-    healthScore,
-    image,
-    steps,
-    diets,
-    createdInDb,  
-  } = req.body;
-  let recipeCreated = await Recipe.create({
-    id,
-    name,
-    summary,
-    healthScore,
-    image,
-    steps,
-    createdInDb,
-  })
-  let dietDb = await Diet.findAll({
-    where: {name: diets}
-  })
-  recipeCreated.addDiet(dietDb)
-  res.status(200).json("Recipe created")
+  try {
+    let {
+      id,
+      name,
+      summary,
+      healthScore,
+      image,
+      steps,
+      diets,
+      createdInDb,  
+    } = req.body;
+    let recipeCreated = await Recipe.create({
+      id,
+      name,
+      summary,
+      healthScore,
+      image,
+      steps,
+      createdInDb,
+    })
+    let dietDb = await Diet.findAll({
+      where: {name: diets}
+    })
+    recipeCreated.addDiet(dietDb)
+    res.status(200).json("Recipe created")
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
+  
 });
 
 router.get("/diets", async (req, res) => {
-
-const dietApi = await axios.get(
+try {
+  const dietApi = await axios.get(
     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=25`
   );
 const dietInfo = dietApi.data.results.map(e => e.diets)
@@ -164,7 +174,11 @@ diets.forEach(e => {
     })
 })
 const allDiets = await Diet.findAll();
-res.send(allDiets)
+res.status(200).send(allDiets)
+} catch (error) {
+  res.status(404).send(error.message);
+}
+
 });
 
 module.exports = router;
