@@ -1,5 +1,5 @@
 .mainDiv {
-    background-image: url('../Images/hermes-rivera-rx-_JF3vgjw-unsplash.jpg');
+    background-image: url('../Images/3.jpg');
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
@@ -9,7 +9,9 @@
     position: absolute;
     padding-top: 200px;
     width: 100%;
+    min-height: 100vh;
     background-color: #333;
+   
 }
 
 .title {

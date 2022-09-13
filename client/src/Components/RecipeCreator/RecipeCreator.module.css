@@ -1,0 +1,101 @@
+.mainContainer {
+    background-image: url('../Images/brooke-lark-wMzx2nBdeng-unsplash.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid white;
+    width: 500px;
+    height: 600px;
+    background-color: black;
+    opacity: 80%;
+    color: white;
+    border-radius: 50px;
+    margin-top: 80px;
+}
+
+
+label {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 26px;
+  }
+
+input {
+    background-color: #F9FBFC;
+    padding: 0;
+    color: #1E1E1F;
+    font-size: 20px;
+    width: 270px;
+    border-style: none;
+    margin-top: 10px;
+ } 
+textarea {
+    background-color: #F9FBFC;
+    color: #1E1E1F;
+    font-size: 20px;
+    height: 56px;
+    width: 270px;
+    border-style: none;
+    resize: none;
+    margin-top: 10px;
+    padding: 0;
+}
+select {
+    width: 270px;
+    height: 30px;
+}
+form {
+    width: 100%;
+    max-width: 300px;
+    padding: 33px 40px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+  }
+
+.createButton {
+    background-color:rgb(143, 208, 208);
+    height: 50px;
+    width: 100px;
+    border-radius: 30px;
+    align-self: center;
+    margin-top: 20px;
+    border-style: none;
+}
+.createButton:hover {
+    cursor: pointer;
+}
+.deleteButton {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+}
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+li {
+    font-size: 12px;
+    display: flex;
+    width: 70px;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bold;
+}

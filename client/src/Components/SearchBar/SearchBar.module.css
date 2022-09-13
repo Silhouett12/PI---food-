@@ -16,6 +16,7 @@
 	align-items: center;
 	margin-left: 10px;
 	cursor: pointer;
+    align-self: center;
 }
 
 .button:hover {
@@ -24,6 +25,7 @@
     border: 1px solid white;
 }
 .inputSearch {
+    margin: 0;
     width: 100%;
 	border: 0;
 	background: white;
