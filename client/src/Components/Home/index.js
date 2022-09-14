@@ -27,7 +27,7 @@ const Home = () => {
     indexOfFirstRecipe,
     indexOfLastRecipe
   );
-  
+  const selectedPage = currentPage;
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -81,7 +81,9 @@ const Home = () => {
           </select>
           </div>
           <div className={styles.searchBarContainer}>
-          <SearchBar />
+          <SearchBar 
+          pages = {pages}
+          />
           </div>
           <button className={styles.button}>
             <Link to="/create" className={styles.linkCreate}>

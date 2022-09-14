@@ -4,7 +4,7 @@ import styles from "./Pages.module.css";
 const Pages = ({ recipesPerPage, allRecipes, pages }) => {
   const pageNumber = [];
 
-  for (let i = 0; i <= Math.ceil(allRecipes / recipesPerPage); i++) {
+  for (let i = 0; i < Math.ceil(allRecipes / recipesPerPage); i++) {
     pageNumber.push(i+1);
 
   }

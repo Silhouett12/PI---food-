@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux'
 import { getRecipesName } from '../../Redux/actions'
 import styles from './SearchBar.module.css'
 
-const SearchBar = () => {
+
+
+const SearchBar = ({pages}) => {
     const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
     const onSearchValueChange = (event) => {
@@ -13,7 +15,7 @@ const SearchBar = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(getRecipesName(searchValue))
-        console.log(searchValue)
+        pages(1)
     }
   return (
     <div className={styles.searchBar}>

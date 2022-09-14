@@ -5,12 +5,16 @@ import axios from 'axios';
 
 export function getRecipes() {
     return async function(dispatch) {
-        const json = await axios.get('http://localhost:3001/recipes', {});
-        return dispatch({
-            type: 'GET_RECIPES',
-            payload: json.data,
-        }) 
-
+        try {
+            const json = await axios.get('http://localhost:3001/recipes', {});
+            return dispatch({
+                type: 'GET_RECIPES',
+                payload: json.data,
+            }) 
+        } catch (error) {
+            alert('You reached the daily request limit. try tomorrow')
+        }
+       
     }
 }
 
@@ -18,11 +22,15 @@ export function getRecipes() {
 
 export function getDetails(id) {
     return async function(dispatch) {
-        const json = await axios.get('http://localhost:3001/recipes/' + id);
-        return dispatch({
-            type: 'GET_DETAILS',
-            payload: json.data,
-        });
+        try {
+            const json = await axios.get('http://localhost:3001/recipes/' + id);
+            return dispatch({
+                type: 'GET_DETAILS',
+                payload: json.data,
+            });
+        } catch (error) {
+            alert('Recipe not found')
+        }  
     }
 }
 
@@ -37,19 +45,24 @@ export function getRecipesName(name) {
             });
 
         } catch (error) {
-            return error
+            alert('Recipes not found')
         }
     }
 }
 
 export function getDiets() {
-    return async function(dispatch) {
-        const json = await axios.get('http://localhost:3001/diets', {});
-        return dispatch({
-            type: 'GET_DIETS',
-            payload: json.data,
-        })
+    try {
+        return async function(dispatch) {
+            const json = await axios.get('http://localhost:3001/diets', {});
+            return dispatch({
+                type: 'GET_DIETS',
+                payload: json.data,
+            })
+        }
+    } catch (error) {
+        alert('Ups... You reached the daily request limit. try tomorrow')
     }
+    
 }
 
 export function createRecipe(payload) {
