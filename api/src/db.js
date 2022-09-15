@@ -34,6 +34,7 @@ let sequelize =
         `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
         { logging: false, native: false }
       );
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
