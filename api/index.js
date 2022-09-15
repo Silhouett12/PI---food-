@@ -19,12 +19,10 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
-
-let port = process.env.PORT || 3001;
-
+let port = process.env.PORT
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
   server.listen(port, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
   });
 });
