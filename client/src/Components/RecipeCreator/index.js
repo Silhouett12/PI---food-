@@ -81,7 +81,6 @@ const RecipeCreator = () => {
 
   return (
     <div className={styles.mainContainer}>
-      <Navbar />
       <div className={styles.mainDiv}>
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputDiv}>

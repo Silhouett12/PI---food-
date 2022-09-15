@@ -56,7 +56,6 @@ const Home = () => {
   };
   return (
     <>
-      <Navbar />
       
       <div className={styles.mainDiv}>
         <div className={styles.firstContainer}>

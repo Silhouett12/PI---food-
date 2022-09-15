@@ -19,7 +19,6 @@ const RecipeDetails = (props) => {
   console.log(recipes)
   return (
     <div>
-      <Navbar/>
       {recipes? <div className={styles.mainDiv}> 
         <div className={styles.name}>"<b>{recipes.name}</b>"</div> 
         <div className={styles.image}> <img src={recipes.image} alt="Not found" /> 
