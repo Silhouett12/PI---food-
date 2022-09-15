@@ -182,6 +182,6 @@ res.status(200).send(allDiets)
 
 });
 
-app.get('/favicon.ico', (req, res) => res.status(204));
+router.get('/favicon.ico', (req, res) => res.status(204));
 
 module.exports = router;
