@@ -19,7 +19,6 @@ export function getRecipes() {
 }
 
 
-
 export function getDetails(id) {
     return async function(dispatch) {
         try {
@@ -59,8 +58,9 @@ export function getDiets() {
                 payload: json.data,
             })
         }
-    } catch (error) {
-        alert('Ups... You reached the daily request limit. try tomorrow')
+    } 
+    catch (error) {
+        alert('You reached the daily request limit. try tomorrow')
     }
     
 }

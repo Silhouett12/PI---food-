@@ -7,11 +7,10 @@ import RecipeDetails from "./Components/RecipeDetails";
 import RecipeCreator from "./Components/RecipeCreator";
 import Navbar from "./Components/Navbar";
 
-
 function App() {
   return (
     <>
-      <Navbar/>
+    <Navbar/>
       <Routes>
         <Route path="/" element={<FirstPage/>} />
         <Route path="/home" element={<Home/>} />

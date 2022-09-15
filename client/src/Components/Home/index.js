@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import RecipeCard from "../Cards";
 import Pages from "../Pages";
-import Navbar from "../Navbar/index";
 import SearchBar from "../SearchBar";
 
 const Home = () => {
@@ -27,7 +26,6 @@ const Home = () => {
     indexOfFirstRecipe,
     indexOfLastRecipe
   );
-  const selectedPage = currentPage;
 
   const pages = (pageNumber) => {
     setCurrentPage(pageNumber);

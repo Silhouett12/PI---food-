@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createRecipe, getDiets } from "../../Redux/actions";
 import styles from "./RecipeCreator.module.css";
-import Navbar from "../Navbar";
+
 
 const RecipeCreator = () => {
   const dispatch = useDispatch();

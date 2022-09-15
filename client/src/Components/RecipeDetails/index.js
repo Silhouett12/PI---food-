@@ -4,7 +4,6 @@ import { getDetails } from "../../Redux/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './RecipeDetails.module.css'
-import Navbar from "../Navbar";
 
 const RecipeDetails = (props) => {
   const dispatch = useDispatch();
