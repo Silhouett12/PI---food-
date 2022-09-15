@@ -31,11 +31,11 @@
 	background: white;
 	padding: 15px 20px;
 	color: black;
-    opacity: 70%;
+   
 }
 .inputSearch:focus {
     font-size: 22px;
-    opacity: 100%;
+    
 }
 .inputSearch::placeholder {
     font-size: 22px;
