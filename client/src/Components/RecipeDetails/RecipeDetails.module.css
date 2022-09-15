@@ -26,7 +26,9 @@
     padding: 30px 150px;
     height: 350px;
 }
-
+.image img {
+    border-radius: 30px;
+}
 .score {
     height: 100%;
     width: 380px;
@@ -62,6 +64,9 @@
 }
 
 @media (max-width: 1024px) {
+    .mainDiv {
+        height: 100%;
+    }
     .name {
         padding-top: 120px;
         font-size: 22px;
@@ -97,4 +102,17 @@
     .title {
         font-size: 30px;
     }
+}
+
+@media (max-width: 380px) {
+    .name {
+        padding-top: 80px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    .image {
+        padding: 0;
+    }
+
 }

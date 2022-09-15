@@ -40,14 +40,15 @@ const RecipeCreator = () => {
   };
 
   const handleSelect = (e) => {
+    if (!input.diets.includes(e.target.value)){
     setInput({
       ...input,
       diets: [...input.diets, e.target.value],
-    });
+    });}
   };
 
   const handleBlur = (e) => {
-    handleChange(e);
+    handleChange(e)
     setErrors(validateForm(input));
   };
 
@@ -154,9 +155,9 @@ const RecipeCreator = () => {
               <option value={el.name}>{el.name}</option>
             ))}
           </select>
+          Diets:
           <ul>
             {" "}
-            Diets:
             {input.diets.map((el) => (
               <li>
                 {el}

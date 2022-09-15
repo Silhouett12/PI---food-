@@ -52,6 +52,7 @@ const Home = () => {
   };
   const handleFilterByDiet = (e) => {
     dispatch(filterByDiet(e.target.value));
+    setCurrentPage(1);
   };
   return (
     <>
@@ -59,7 +60,7 @@ const Home = () => {
       
       <div className={styles.mainDiv}>
         <div className={styles.firstContainer}>
-          <h1 className={styles.title}>Welcome to my food API! :D</h1>
+          <h1 className={styles.title}>API FOOD :D</h1>
         </div>
         <div className={styles.secondContainer}>
           <div className={styles.filterContainer}>
