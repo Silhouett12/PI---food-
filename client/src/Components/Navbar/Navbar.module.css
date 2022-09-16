@@ -8,8 +8,7 @@
     left: 0;
     right: 0;
     top: 50px;
-    background-color: white;
-    
+    background-color: rgba(255, 255, 255, 0.446);
     justify-content: space-between;
     padding: 10px;
     border-radius: 35px;
@@ -59,7 +58,7 @@
     border: 1px solid black;
     position: relative;
     overflow: hidden;
-   
+    background-color: rgba(255, 255, 255, 0.627);
     border-radius: 80px;
     
   }
@@ -163,7 +162,7 @@
     position: relative;
     
     border-radius: 0;
-    background-color: transparent;
+    background-color: white;
   }
 .button a{
     color: black;
