@@ -1,6 +1,6 @@
 import React from "react";
 import {useParams} from "react-router-dom";
-import { getDetails } from "../../Redux/actions";
+import { getDetails, getRecipes } from "../../Redux/actions";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from './RecipeDetails.module.css'
@@ -13,9 +13,8 @@ const RecipeDetails = (props) => {
   useEffect(() => {
     dispatch(getDetails(id));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-  console.log(getDetails(id))
   const recipes = useSelector((state) => state.details);
-  console.log(recipes)
+
   return (
     <div>
       {recipes? <div className={styles.mainDiv}> 

@@ -189,3 +189,9 @@
       padding-top: 15px;
     }
   }
+
+  @media (max-width: 767px) {
+    .mainDiv {
+      background-image: url('../images/HomeMobile.jpg');
+    }
+  }

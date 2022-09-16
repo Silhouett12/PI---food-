@@ -6,7 +6,7 @@ import axios from 'axios';
 export function getRecipes() {
     return async function(dispatch) {
         try {
-            const json = await axios.get('/recipes', {});
+            const json = await axios.get('http://localhost:3001/recipes', {});
             return dispatch({
                 type: 'GET_RECIPES',
                 payload: json.data,
@@ -19,10 +19,11 @@ export function getRecipes() {
 }
 
 
+
 export function getDetails(id) {
     return async function(dispatch) {
         try {
-            const json = await axios.get('/recipes/' + id);
+            const json = await axios.get('http://localhost:3001/recipes/' + id);
             return dispatch({
                 type: 'GET_DETAILS',
                 payload: json.data,
@@ -37,7 +38,7 @@ export function getDetails(id) {
 export function getRecipesName(name) {
     return async function(dispatch) {
         try {
-            const json = await axios.get('/recipes?name=' + name);
+            const json = await axios.get('http://localhost:3001/recipes?name=' + name);
             return dispatch({
                 type: 'GET_RECIPES_NAME',
                 payload: json.data,
@@ -52,22 +53,21 @@ export function getRecipesName(name) {
 export function getDiets() {
     try {
         return async function(dispatch) {
-            const json = await axios.get('/diets', {});
+            const json = await axios.get('http://localhost:3001/diets', {});
             return dispatch({
                 type: 'GET_DIETS',
                 payload: json.data,
             })
         }
-    } 
-    catch (error) {
-        alert('You reached the daily request limit. try tomorrow')
+    } catch (error) {
+        alert('Ups... You reached the daily request limit. try tomorrow')
     }
     
 }
 
 export function createRecipe(payload) {
     return async function(dispatch) {
-        const json = await axios.post('/recipes', payload);
+        const json = await axios.post('http://localhost:3001/recipes', payload);
         return json
     }
 }
