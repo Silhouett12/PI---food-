@@ -105,9 +105,7 @@
 }
 
 @media (max-width: 380px) {
-    .mainDiv {
-        background-image: url('../Images/DetailsMobile.jpg');
-    }
+   
     .name {
         padding-top: 80px;
         padding-left: 40px;

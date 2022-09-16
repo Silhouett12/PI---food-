@@ -57,8 +57,3 @@
     left: 100%;
   }
 
-  @media (max-width: 767px) {
-    .mainContainer {
-      background-image: url('../images/LandingMobile.jpg');
-    }
-  }
