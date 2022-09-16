@@ -117,9 +117,6 @@ li {
 }
 
 @media (max-width: 380px) {
-    .mainContainer {
-        background-image: url('../Images/CreateRecipeMobile.jpg');
-    }
     .mainDiv {
         margin-top: 50px;
         width: 300px;
