@@ -101,7 +101,7 @@ router.get("/recipes/:id", async (req, res) => {
       res.status(200).json(result2);
     } else {
       const apiUrl = await axios.get(
-        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY}&includeNutrition=false`
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${KEY2}&includeNutrition=false`
       );
       const apiRecipes = apiUrl.data;
       const apiRecipeId = {
@@ -160,7 +160,7 @@ router.post("/recipes", async (req, res) => {
 router.get("/diets", async (req, res) => {
 try {
   const dietApi = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY}&addRecipeInformation=true&number=25`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${KEY3}&addRecipeInformation=true&number=25`
   );
 const dietInfo = dietApi.data.results.map(e => e.diets)
 const diets = [];
