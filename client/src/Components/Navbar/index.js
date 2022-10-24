@@ -33,7 +33,7 @@ const Navbar = () => {
             </div>
             <button className={styles.button}>
               <a className={styles.link}
-                href="https://pablolamadrid.netlify.app/"
+                href="https://pablolamadrid.vercel.app/"
               >
                 My Page
               </a>
