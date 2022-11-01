@@ -97,7 +97,7 @@ const Home = () => {
           />
           </div>
           <div className={styles.cards}>
-            {currentRecipes?.map((el) => {
+            {allRecipes.length > 0 ? currentRecipes?.map((el) => {
               return (
                 <>
                   <RecipeCard
@@ -109,7 +109,7 @@ const Home = () => {
                   />                  
                 </>
               );
-            })}
+            }): <div className={styles.loading}> Loading...</div>}
           </div>
       </div>
     </>

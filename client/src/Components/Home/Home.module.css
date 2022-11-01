@@ -155,6 +155,12 @@
   }
 
 
+  .loading {
+    font-size: 100px;
+    font-weight: bolder;
+    align-self: center;
+  }
+
   @media (max-width: 1024px) {
     .mainDiv {
       padding-top: 80px;
